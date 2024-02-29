@@ -3,7 +3,7 @@ def calculate(exp):
         operator = operators.pop()
         right = values.pop()
         left = values.pop()
-#заполнение стека результатами операций
+# принцип заполнения стека результатами операций
         if operator == '+':
             values.append(left + right)
         elif operator == '-':
@@ -20,8 +20,8 @@ def calculate(exp):
             return 2
         return 0
 
-    operators = []
-    values = []
+    operators = []  # для операторов
+    values = []    # для посчитанных промежуточных значений
     i = 0
     stack = []
     
@@ -62,7 +62,7 @@ def calculate(exp):
             i += 1
         elif exp[i] == ')':
             while operators[-1] != '(':
-                apply_operator(operators, values) # Считаем выражение в скобках
+                apply_operator(operators, values)         # Считаем выражение в скобках
             operators.pop()
             i += 1
         elif exp[i] == '=':
